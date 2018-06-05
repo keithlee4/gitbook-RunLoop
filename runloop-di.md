@@ -1,6 +1,6 @@
 # RunLoop 與 底層實現
 
-由[源碼](https://opensource.apple.com/source/CF/CF-855.17/CFRunLoop.c)我們可以知道，RunLoop 的核心是基於 mach port 實現的，進入休眠時會調用 mach\_msg\(\)，進入核心態。（這些底層的知識我看得雲裡霧裡的，現階段就別不懂裝懂了\(汗\)，提供個[參考連結](https://www.jianshu.com/p/85e931636f27)）
+由[源碼](https://opensource.apple.com/source/CF/CF-855.17/CFRunLoop.c)我們可以知道，RunLoop 的核心是基於 mach port 實現的，進入休眠時會調用 mach\_msg\(\)，進入核心態。（底層我看得雲裡霧裡的，現階段就別不懂裝懂了 T\_T，提供個[參考連結](https://www.jianshu.com/p/85e931636f27)）
 
 要理解底層實現的邏輯，就要先知道 iOS 的系統架構，如圖\([來源](https://blog.ibireme.com/2015/05/18/runloop/)\)
 
