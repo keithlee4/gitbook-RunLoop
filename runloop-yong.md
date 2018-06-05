@@ -4,7 +4,8 @@ description: 所以講這麼多，平常有哪些常見的機制和 RunLoop 有�
 
 # RunLoop 與 應用
 
-談到應用前先來理解一下 App launch 之後 RunLoop 的狀態 \(內容就直接挪過來了, 補充了 Name 上去）
+談到應用前先來理解一下 App launch 之後 RunLoop 的狀態，如果我們在系統 launch 時打印當前 RunLoop，會看類似下方的結果:  
+ \(內容就直接[從這](https://blog.ibireme.com/2015/05/18/runloop/)挪過來了, 補充了 Name 上去）
 
 ```c
 CFRunLoop {
@@ -121,7 +122,7 @@ timer 的部分已有章節特別整理了。
 
 {% page-ref page="runloop-de-mode/timer-source-keng.md" %}
 
-在這裡再額外提一個 CADisplayLink
+在這裡再額外提一個跟屏幕刷新相關的 Timer: **CADisplayLink**
 
 #### CADisplayLink
 
@@ -133,7 +134,7 @@ CADisplayLink 是一個 Timer，更新頻率和屏幕刷新頻率相同，**它�
 這 part 需要對自動釋放池有基本的理解，日後會再整理 AutoreleasePool 的內容，預計是會放在 ARC 機制的文章裡。
 {% endhint %}
 
-雖然自動釋放池和 RunLoop 沒有直接關係，但常拿來一起討論，也是面試時容易遇到的問題（重點）。
+雖然自動釋放池和 RunLoop 沒有直接關係，但常拿來一起討論，**也是面試時容易遇到的問題（重點）。**
 
 iOS App 在 launch 後會註冊兩個 Observer 以管理和維護 AutoreleasePool。先來看下打印的結果 \(省去一些無關的資訊\)：
 

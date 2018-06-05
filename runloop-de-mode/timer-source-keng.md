@@ -44,7 +44,7 @@ override func viewDidLoad() {
 
 ![](../.gitbook/assets/ying-mu-kuai-zhao-20180604-xia-wu-4.01.05.png)
 
-為什麼 timer1 的回調會執行， timer2 不會呢？便是因為 timer1 是用 scheduledTimer... 創建，使 RunLoop retain 了這個 Timer，因此即便屬性設為 weak，timer1 也沒有被釋放。
+為什麼 timer1 的回調會執行， timer2 不會呢？便是因為 timer1 是用 `scheduledTimer...` 創建，使 RunLoop retain 了這個 Timer，因此即便屬性設為 weak，timer1 也沒有被釋放。
 
 相反的 timer 2 在創建時並沒有加入 RunLoop，因此創建完後就直接被釋放了。
 

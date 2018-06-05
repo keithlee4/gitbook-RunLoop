@@ -22,9 +22,9 @@ struct _CFRunLoop {
 
 ```
 
-RunLoop 結構裡包含了一個叫「CommonModes」的概念。
+RunLoop 結構裡包含了一個叫「CommonModes」的概念。Common Modes 是什麼？
 
-#### Common Mode:
+### Common Mode
 
 Mode 可以藉由將其 ModeName \(CFStringRef name;\) 加入到 RunLoop 的 commonModes， 將自己標記為 Common 屬性。每當RunLoop的內容發生變化時，RunLoop 會自動將 \_commonModeItems 裡的 Source/Observer/Timer 同步到有標記過「Common」的Mode裡。常見的應用場景是:
 
@@ -35,7 +35,7 @@ Mode 可以藉由將其 ModeName \(CFStringRef name;\) 加入到 RunLoop 的 com
 1. kCFRunLoopDefaultMode:         App 平時所處狀態的 Mode 
 2. UITrackingRunLoopMode:        追蹤 ScrollView 滑動狀態的 Mode.
 
-當創建一個 Timer 並加入到 DefaultMode 時， Timer 會正確重複回調，但是當滑動一個 ScrollView 時，RunLoop 會切換到 TrackingRunLoopMode，此時處於 DefaultMode 裡的 Timer 就不會回調，也不會影響滑動操作。
+當創建一個 Timer 並加入到 DefaultMode 時， Timer 會正確重複回調，但是當滑動一個 ScrollView 時，RunLoop 會切換到 TrackingRunLoopMode，此時處於 DefaultMode 裡的 Timer 就不會回調，避免影響滑動操作。
 
 但如果我們需要這個 Timer 在兩個 Modes 裡都執行回調，一般來說有兩種方法：
 
@@ -109,7 +109,7 @@ CFRunLoopRemoveTimer(CFRunLoopRef rl, CFRunLoopTimerRef timer, CFStringRef mode)
 
 可以用這兩個 mode name 來操作其對應的 mode。
 
-同時 Apple 提供一個操作 Common 標記的字串: kCFRunLoopCommonModes \(NSRunLoopCommonModes\)，使用該字串可
+同時 Apple 提供一個操作 Common 標記的字串: kCFRunLoopCommonModes \(NSRunLoopCommonModes\)，使用該字串可以:
 
 1. 操作 Common Items
 2. 標記一個 Mode 為 Common
