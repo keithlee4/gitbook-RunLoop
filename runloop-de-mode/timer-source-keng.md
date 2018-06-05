@@ -15,7 +15,7 @@ description: 說到 RunLoop 其實我們 87% 都是藉由 Timer 認識的
 
 另外第二個重要的觀念:
 
-### Timer 再加入 RunLoop 後，RunLoop 會對 Timer 執行 retain
+### Timer 加入 RunLoop 後，RunLoop 會對 Timer 執行 retain
 
 簡單的示例如下
 
